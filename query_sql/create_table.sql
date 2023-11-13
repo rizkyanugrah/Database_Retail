@@ -1,9 +1,12 @@
+-- Tabel Pelanggan
 CREATE TABLE `Pelanggan`(
     `id_pelanggan` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nama` VARCHAR(255) NOT NULL,
     `alamat` VARCHAR(255) NOT NULL,
     `email` VARCHAR(255) NOT NULL
 );
+
+-- Tabel Barang
 CREATE TABLE `Barang`(
     `id_barang` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nama_barang` VARCHAR(255) NOT NULL,
@@ -11,6 +14,8 @@ CREATE TABLE `Barang`(
     `kategori_id` INT NOT NULL
      FOREIGN KEY(`kategori_id`) REFERENCES `Kategori`(`id_kategori`);
 );
+
+-- Tabel Transaksi
 CREATE TABLE `Transaksi`(
     `id_transaksi` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `tanggal_transaksi` DATE NOT NULL,
@@ -19,10 +24,14 @@ CREATE TABLE `Transaksi`(
 
     FOREIGN KEY(`pelanggan_id`) REFERENCES `Pelanggan`(`id_pelanggan`);
 );
+
+-- Tabel Kategori
 CREATE TABLE `Kategori`(
     `id_kategori` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nama_kategori` VARCHAR(255) NOT NULL
 );
+
+-- Tabel DetailTransaksi
 CREATE TABLE `DetailTransaksi`(
     `id_detail_transaksi` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `jumlah_beli` INT NOT NULL,
